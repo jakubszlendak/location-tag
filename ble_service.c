@@ -54,34 +54,6 @@ static void on_disconnect(ble_service_t * p_service, ble_evt_t * p_ble_evt)
 }
 
 
-/**@brief Function for handling the CCCD write events to ADVDATA characteristic.
- *
- * @param[in]   p_service         BLE Service structure.
- * @param[in]   p_evt_write   Write event received from the BLE stack.
- */
-static void on_cccd_write(ble_service_t * p_service, ble_gatts_evt_write_t * p_evt_write)
-{
-    if (p_evt_write->len == 2)
-    {
-        // CCCD written, update indication state
-        if (p_service->evt_handler != NULL)
-        {
-            ble_service_evt_t evt;
-
-            if (ble_srv_is_indication_enabled(p_evt_write->data))
-            {
-                evt.evt_type = BLE_SERVICE_EVT_INDICATION_ENABLED;
-            }
-            else
-            {
-                evt.evt_type = BLE_SERVICE_EVT_INDICATION_DISABLED;
-            }
-
-            p_service->evt_handler(p_service, &evt, p_evt_write->data, 0);
-        }
-    }
-}
-
 /**@brief Function for handling the value write events to ADVDATA characteristic.
  *
  * @param[in]   p_service         BLE Service structure.
