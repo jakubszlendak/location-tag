@@ -34,4 +34,6 @@ uint32_t persistence_store_data(uint32_t* addr, uint8_t* data, uint32_t size);
  */
 uint32_t persistence_store_data_async(uint32_t* addr, uint8_t* data, uint32_t size);
 
+uint32_t persistence_erase_page_async(uint32_t* addr);
+
 #endif /* PERSISTENCE_H_ */

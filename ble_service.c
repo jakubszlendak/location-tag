@@ -158,9 +158,9 @@ static uint32_t advdata_char_add(ble_service_t * p_service, const ble_service_in
 
     attr_char_value.p_uuid       = &ble_uuid;
     attr_char_value.p_attr_md    = &attr_md;
-    attr_char_value.init_len     = 1;
+    attr_char_value.init_len     = 4;
     attr_char_value.init_offs    = 0;
-    attr_char_value.max_len      = 20;
+    attr_char_value.max_len      = 4;
     attr_char_value.p_value      = 0x00;
 
     return sd_ble_gatts_characteristic_add(p_service->service_handle,

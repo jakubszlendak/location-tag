@@ -16,8 +16,9 @@
 #include <string.h>
 #include <ble.h>
 
-uint16_t 		m_conn_handle = BLE_CONN_HANDLE_INVALID;
-ble_service_t	m_service;
+
+uint16_t 			m_conn_handle = BLE_CONN_HANDLE_INVALID;
+ble_service_t		m_service;
 
 void app_error_handler(uint32_t error_code, uint32_t line_num, const uint8_t * p_file_name) {
 
@@ -179,3 +180,4 @@ void BLE_init() {
 	gap_params_init();
 	services_init();
 }
+
